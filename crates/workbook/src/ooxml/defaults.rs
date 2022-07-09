@@ -135,6 +135,10 @@ pub fn default_string_pict() -> String {
     String::from("pict")
 }
 
+pub fn default_string_empty() -> String {
+    String::from("")
+}
+
 pub fn st_dv_aspect_content() -> StDvAspect {
     StDvAspect::DvaspectContent
 }
