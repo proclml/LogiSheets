@@ -1175,3 +1175,20 @@ xml_serde_enum! {
         Internal => "Internal",
     }
 }
+
+xml_serde_enum! {
+    #[derive(Debug, PartialEq, Eq)]
+    StBlackWhiteMode {
+        Clr => "clr",
+        Auto => "auto",
+        Gray => "gray",
+        LtGray => "ltGray",
+        InvGray => "invGray",
+        GrayWhite => "grayWhite",
+        BlackGray => "blackGray",
+        BlackWhite => "blackWhite",
+        Black => "black",
+        White => "white",
+        Hidden => "hidden",
+    }
+}

@@ -211,6 +211,10 @@ pub fn default_zero_u8() -> u8 {
     0
 }
 
+pub fn default_zero_i32() -> i32 {
+    0
+}
+
 pub fn st_cell_type_n() -> StCellType {
     StCellType::N
 }

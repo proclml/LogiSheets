@@ -1,6 +1,8 @@
 use super::defaults::default_false;
 use super::defaults::default_string_empty;
 use super::defaults::default_true;
+use super::defaults::default_zero_i32;
+use super::simple_types::StBlackWhiteMode;
 use xmlserde::Unparsed;
 
 #[derive(Debug, XmlSerialize, XmlDeserialize)]
@@ -33,6 +35,8 @@ pub struct CtShape {
     pub r#macro: Option<String>,
     #[xmlserde(name = b"textlink", ty = "attr")]
     pub textlink: Option<String>,
+    #[xmlserde(name = b"extLst", ty = "child")]
+    pub ext_lst: Option<Unparsed>,
     #[xmlserde(name = b"fLocksText", ty = "attr", default = "default_true")]
     pub f_locks_text: bool,
     #[xmlserde(name = b"fPublished", ty = "attr", default = "default_false")]
@@ -106,6 +110,16 @@ pub struct CtShapeLocking {
 }
 
 #[derive(Debug, XmlSerialize, XmlDeserialize)]
+pub struct CtShapeProperties {
+    #[xmlserde(name = b"xfrm", ty = "child")]
+    pub xfrm: Option<CtTransform2D>,
+    // ref EgGeometry
+    // ref FillProperties
+    #[xmlserde(name = b"bwMode", ty = "attr")]
+    pub bw_mode: Option<StBlackWhiteMode>,
+}
+
+#[derive(Debug, XmlSerialize, XmlDeserialize)]
 pub struct CtGroupShape {}
 
 #[derive(Debug, XmlSerialize, XmlDeserialize)]
@@ -121,4 +135,34 @@ pub struct CtPicture {}
 pub struct CtRel {
     #[xmlserde(name = b"r:id", ty = "attr")]
     pub id: String,
+}
+
+#[derive(Debug, XmlSerialize, XmlDeserialize)]
+pub struct CtTransform2D {
+    #[xmlserde(name = b"off", ty = "child")]
+    pub off: Option<CtPoint2D>,
+    #[xmlserde(name = b"ext", ty = "child")]
+    pub ext: Option<CtPositiveSize2D>,
+    #[xmlserde(name = b"rot", ty = "attr", default = "default_zero_i32")]
+    pub rot: i32,
+    #[xmlserde(name = b"flipH", ty = "attr", default = "default_false")]
+    pub flip_h: bool,
+    #[xmlserde(name = b"flipV", ty = "attr", default = "default_false")]
+    pub flip_v: bool,
+}
+
+#[derive(Debug, XmlSerialize, XmlDeserialize)]
+pub struct CtPoint2D {
+    #[xmlserde(name = b"x", ty = "attr")]
+    pub x: i64,
+    #[xmlserde(name = b"y", ty = "attr")]
+    pub y: i64,
+}
+
+#[derive(Debug, XmlSerialize, XmlDeserialize)]
+pub struct CtPositiveSize2D {
+    #[xmlserde(name = b"cx", ty = "attr")]
+    pub cx: u64,
+    #[xmlserde(name = b"cy", ty = "attr")]
+    pub cy: u64,
 }
