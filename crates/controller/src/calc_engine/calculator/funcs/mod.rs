@@ -9,6 +9,7 @@ mod complex;
 mod concatenate;
 mod condition;
 mod count;
+mod countblank;
 mod countif;
 mod datetime;
 mod delta;
