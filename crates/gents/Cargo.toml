@@ -1,0 +1,8 @@
+[package]
+authors = ["ImJeremyHe<yiliang.he@qq.com>"]
+edition = "2018"
+name = "gents"
+version = "0.1.0"
+license = "MIT"
+description = "generate typescript interfaces by rust code"
+repository = "https://github.com/proclml/LogiSheets"
