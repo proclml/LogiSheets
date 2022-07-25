@@ -8,4 +8,4 @@ description = "generate typescript interfaces from rust code"
 repository = "https://github.com/proclml/LogiSheets"
 
 [dependencies]
-gents_derives = {version = "0.1.0", "path" = "./derives"}
+gents_derives = {version = "0.1.0", path = "./derives"}
